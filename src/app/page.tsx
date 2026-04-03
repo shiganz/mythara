@@ -77,10 +77,6 @@ export default function Home() {
           <p className="text-[#b7c6e6] mb-8 text-sm leading-relaxed">
             Please launch this app from the Base or Farcaster app to start your daily reward journey.
           </p>
-          <div className="p-4 bg-white/5 rounded-xl border border-white/10 text-left">
-            <p className="text-xs text-[#9fc2ff] uppercase font-bold mb-1">Developer Tip</p>
-            <p className="text-xs text-[#b7c6e6]">Use <code className="bg-white/10 px-1 rounded">?dev=true</code> to test locally.</p>
-          </div>
         </div>
       </main>
     );
