@@ -73,7 +73,7 @@ export default function Home() {
       <main className="min-h-screen grid place-items-center p-5 bg-[#0b1220]">
         <div className="w-full max-w-[480px] border border-white/10 bg-[rgba(15,23,42,0.8)] backdrop-blur-xl rounded-[24px] p-8 text-center shadow-2xl">
           <div className="mb-6 text-5xl">📦</div>
-          <h1 className="text-2xl font-bold mb-3 text-white">Open in Base</h1>
+          <h1 className="text-2xl font-bold mb-3 text-white">Open in Base App</h1>
           <p className="text-[#b7c6e6] mb-8 text-sm leading-relaxed">
             Please launch this app from the Base or Farcaster app to start your daily reward journey.
           </p>
@@ -108,7 +108,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex flex-col items-end">
           <div className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
             <span className="text-[#eab308] text-sm font-black">🪙</span>
@@ -140,7 +140,7 @@ export default function Home() {
 
 function NavButton({ active, onClick, icon, label }: { active: boolean; onClick: () => void; icon: string; label: string }) {
   return (
-    <button 
+    <button
       onClick={onClick}
       className={`flex flex-col items-center gap-1 flex-1 py-1 rounded-xl transition-all ${active ? 'bg-white/10 text-white' : 'text-white/40'}`}
     >
@@ -166,7 +166,7 @@ function HomeView({ game }: { game: any }) {
   const handleOpen = () => {
     if (!canClaim) return;
     setOpening(true);
-    
+
     // Artificial delay for tension
     setTimeout(() => {
       const res = game.claimDaily();
@@ -181,9 +181,9 @@ function HomeView({ game }: { game: any }) {
     <div className="h-full flex flex-col items-center justify-center text-center pt-8">
       <div className="relative mb-12">
         <div className={`text-9xl transition-transform duration-500 scale-125 ${opening ? 'animate-shake' : 'animate-float'}`}>
-          {game.getBoxTypeForStreak(game.streak + 1) === "basic" ? "📦" : 
-           game.getBoxTypeForStreak(game.streak + 1) === "silver" ? "🥈" : 
-           game.getBoxTypeForStreak(game.streak + 1) === "gold" ? "🥇" : "💎"}
+          {game.getBoxTypeForStreak(game.streak + 1) === "basic" ? "📦" :
+            game.getBoxTypeForStreak(game.streak + 1) === "silver" ? "🥈" :
+              game.getBoxTypeForStreak(game.streak + 1) === "gold" ? "🥇" : "💎"}
         </div>
         <div className="absolute inset-0 bg-[#5c7cff] blur-[100px] opacity-20 -z-10" />
       </div>
@@ -198,11 +198,10 @@ function HomeView({ game }: { game: any }) {
       <button
         onClick={handleOpen}
         disabled={!canClaim || opening}
-        className={`w-full max-w-[280px] py-5 rounded-2xl text-lg font-black uppercase tracking-widest transition-all ${
-          canClaim && !opening 
-            ? 'bg-gradient-to-r from-[#5c7cff] to-[#ff5c7c] shadow-[0_0_30px_rgba(92,124,255,0.4)] active:scale-95' 
-            : 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed'
-        }`}
+        className={`w-full max-w-[280px] py-5 rounded-2xl text-lg font-black uppercase tracking-widest transition-all ${canClaim && !opening
+          ? 'bg-gradient-to-r from-[#5c7cff] to-[#ff5c7c] shadow-[0_0_30px_rgba(92,124,255,0.4)] active:scale-95'
+          : 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed'
+          }`}
       >
         {opening ? "Opening..." : canClaim ? "Claim Box" : "Claimed Today"}
       </button>
@@ -216,15 +215,14 @@ function HomeView({ game }: { game: any }) {
           <h1 className="text-4xl font-black mb-4 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
             {reward.name}
           </h1>
-          <div className={`px-4 py-1 rounded-full text-[10px] uppercase font-black mb-12 border ${
-            reward.rarity === 'legendary' ? 'border-[#eab308] text-[#eab308] shadow-[0_0_15px_rgba(234,179,8,0.3)]' :
+          <div className={`px-4 py-1 rounded-full text-[10px] uppercase font-black mb-12 border ${reward.rarity === 'legendary' ? 'border-[#eab308] text-[#eab308] shadow-[0_0_15px_rgba(234,179,8,0.3)]' :
             reward.rarity === 'epic' ? 'border-[#a855f7] text-[#a855f7]' :
-            reward.rarity === 'rare' ? 'border-[#3b82f6] text-[#3b82f6]' :
-            'border-white/20 text-white/40'
-          }`}>
+              reward.rarity === 'rare' ? 'border-[#3b82f6] text-[#3b82f6]' :
+                'border-white/20 text-white/40'
+            }`}>
             {reward.rarity}
           </div>
-          <button 
+          <button
             onClick={() => setReward(null)}
             className="w-full max-w-[200px] py-4 bg-white text-black rounded-xl font-bold uppercase tracking-widest"
           >
@@ -248,9 +246,9 @@ function InventoryView({ game }: { game: any }) {
         ) : (
           game.inventory.slice().reverse().map((item: any, i: number) => (
             <div key={i} className="p-4 rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden group">
-               <div className="text-4xl mb-3">{item.type === 'coins' ? '🪙' : item.type === 'skin' ? '👕' : item.type === 'avatar' ? '👤' : '🎁'}</div>
-               <p className="text-sm font-bold truncate">{item.name}</p>
-               <p className="text-[10px] text-white/40 uppercase font-bold">{item.rarity}</p>
+              <div className="text-4xl mb-3">{item.type === 'coins' ? '🪙' : item.type === 'skin' ? '👕' : item.type === 'avatar' ? '👤' : '🎁'}</div>
+              <p className="text-sm font-bold truncate">{item.name}</p>
+              <p className="text-[10px] text-white/40 uppercase font-bold">{item.rarity}</p>
             </div>
           ))
         )}
@@ -306,7 +304,7 @@ function LeaderboardView({ game }: { game: any }) {
         <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#5c7cff]/10 border border-[#5c7cff]/20">
           <span className="text-xl font-black italic text-[#5c7cff]">1</span>
           <div className="w-10 h-10 rounded-full bg-white/10 border border-white/5 overflow-hidden flex items-center justify-center">
-             👤
+            👤
           </div>
           <div className="flex-1">
             <p className="font-bold">You</p>
