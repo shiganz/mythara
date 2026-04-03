@@ -1,4 +1,4 @@
-import { Reward, DropConfig, BoxType } from "./types";
+import { Reward, BoxType } from "./types";
 
 export const COIN_REWARDS = [
   { id: "coins_10", name: "10 Coins", type: "coins", rarity: "common", value: 10 },
