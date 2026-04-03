@@ -1,9 +1,51 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --brand-primary: #5c7cff;
+    --brand-secondary: #ff5c7c;
+    --brand-accent: #7cff5c;
+    --rarity-common: #94a3b8;
+    --rarity-uncommon: #4ade80;
+    --rarity-rare: #3b82f6;
+    --rarity-epic: #a855f7;
+    --rarity-legendary: #eab308;
+    --rarity-mythic: #ef4444;
+  }
+
   html,
   body {
     background: linear-gradient(160deg, #0b1220 0%, #131d34 55%, #1b2b4b 100%);
     color: #e8eefb;
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
   }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(92, 124, 255, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(92, 124, 255, 0.8); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.animate-glow {
+  animation: glow 2s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s infinite ease-in-out;
 }
